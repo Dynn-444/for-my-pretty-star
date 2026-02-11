@@ -14,20 +14,30 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: flex-start;
+    justify-content: center;
     font-family: "Poppins", sans-serif;
-    text-align: center;
     overflow-x: hidden;
+    text-align: center;
     padding: 20px;
   }
 
   h2 {
-    font-size: 1.6em;
     color: #ff4f81;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
+  }
+
+  .envelope {
+    width: 300px;
+    cursor: pointer;
+    transition: transform 0.4s ease;
+  }
+
+  .envelope:hover {
+    transform: scale(1.05);
   }
 
   .letter {
+    display: none;
     background-color: #fff;
     background-image:
       linear-gradient(to right, rgba(0,0,0,0.05) 1px, transparent 1px),
@@ -40,7 +50,8 @@
     font-family: 'Dancing Script', cursive;
     font-size: 1.3em;
     line-height: 1.6;
-    margin-bottom: 40px;
+    text-align: left;
+    margin-top: 20px;
   }
 
   .date {
@@ -53,6 +64,7 @@
   .signature {
     text-align: right;
     margin-top: 30px;
+    font-style: italic;
   }
 
   .heart {
@@ -72,12 +84,16 @@
 <body>
 
 <h2>💌 Carta especial para mi niña bonita 💌</h2>
+<p style="color:#ff4f81;">Toca el sobre para abrir 💌</p>
 
-<div class="letter">
+<img src="https://goo.su/KLXC" class="envelope" onclick="openEnvelope()">
+
+<div class="letter" id="letter">
   <div class="date">Ecuador, miércoles 11 de febrero del 2026</div>
 
   <p>
-    Mi estrellita bonita,<br><br>
+    Mi estrellita bonita,  
+    <br><br>
     Soy la persona más feliz, estos 4 meses he sentido un amor muy bonito, 
     nuestro amor bonito. Estoy muy feliz por conocerte y tenerte en mi vida. 
     Desde que llegaste, todo ha ido cada vez mejor. Me haces sentir muy amada, 
@@ -99,22 +115,38 @@
     Eres mi alegría diaria, la razón de tantas sonrisas y suspiros de enamorada.
     <br><br>
     Te quiero más de lo que las palabras pueden decir.
-    Gracias por ser tú, por existir, por quedarte.
+    Gracias por ser tú, por existir, por quedarte.  
   </p>
 
   <div class="signature">
-    Con todo mi amor,<br>
+    Con todo mi amor,  
+    <br>
     <strong>Yann 💌</strong>
   </div>
 </div>
 
-<!-- Música automática -->
-<iframe width="0" height="0"
-src="https://www.youtube.com/embed/d2Tu9ctifx4?autoplay=1&loop=1&playlist=d2Tu9ctifx4"
+<!-- Música -->
+<iframe id="ytplayer" width="0" height="0"
+src="https://www.youtube.com/embed/d2Tu9ctifx4?enablejsapi=1&loop=1&playlist=d2Tu9ctifx4"
 allow="autoplay">
 </iframe>
 
 <script>
+let musicStarted = false;
+
+function openEnvelope() {
+  document.querySelector(".envelope").style.display = "none";
+  document.querySelector("p").style.display = "none";
+  document.getElementById("letter").style.display = "block";
+  startInfiniteHearts();
+
+  if (!musicStarted) {
+    const iframe = document.getElementById("ytplayer");
+    iframe.src += "&autoplay=1";
+    musicStarted = true;
+  }
+}
+
 function startInfiniteHearts() {
   setInterval(() => {
     const heart = document.createElement("div");
@@ -126,8 +158,6 @@ function startInfiniteHearts() {
     setTimeout(() => heart.remove(), 8000);
   }, 300);
 }
-
-startInfiniteHearts();
 </script>
 
 </body>
