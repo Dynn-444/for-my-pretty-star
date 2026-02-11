@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html lang="es">
 <head>
 <meta charset="UTF-8">
@@ -76,6 +76,11 @@
     border-radius: 25px;
     text-decoration: none;
     font-size: 1em;
+    transition: 0.3s ease;
+  }
+
+  .music-btn:hover {
+    background-color: #ff2f6d;
   }
 
   .heart {
@@ -90,11 +95,11 @@
     to { transform: translateY(-120vh); opacity: 0; }
   }
 
-  /* sección del video */
   .video-section {
     margin-top: 60px;
     max-width: 600px;
     width: 100%;
+    text-align: left;
   }
 
   .video-text {
@@ -102,6 +107,14 @@
     font-family: 'Dancing Script', cursive;
     font-size: 1.2em;
     text-align: left;
+    color: #444;
+  }
+
+  .lyrics {
+    margin-top: 25px;
+    font-weight: bold;
+    text-align: left;
+    line-height: 1.6;
     color: #444;
   }
 </style>
@@ -150,22 +163,14 @@
     <strong>Yann 💌</strong>
   </div>
 
-  <!-- botón -->
   <div style="text-align:center;">
-    <a href="#video" class="music-btn">toca aquí</a>
+    <a href="https://youtu.be/UuipMfJKmqk" target="_blank" class="music-btn">
+      Mi canción favorita
+    </a>
   </div>
 </div>
 
-<!-- sección del video -->
-<div id="video" class="video-section">
-  <iframe
-    width="100%"
-    height="315"
-    src="https://youtu.be/UuipMfJKmqk?si=bn9uRE5yEw_343AH"
-    frameborder="0"
-    allow="accelerometer; autoplay; encrypted-media"
-    allowfullscreen>
-  </iframe>
+<div class="video-section">
 
   <div class="video-text">
     Esta es mi canción favorita porque me hace pensar en ti,  
@@ -176,19 +181,23 @@
     a mí antes y ahora, y de cuando recién me estaba enamorando de ti  
     y siento muy bonito.
   </div>
-    <div class="lyrics">
-    Oh my Lord<br>
-    “Never met no one like you before~<br>
-    You had to make your own sunshine<br>
-    But now the sky is opalite<br><br>
-    This is just a storm inside a teacup<br>
-    But shelter here with me, my love~<br>
-    Thunder like a drum<br>
-    This life will beat you up~<br><br>
-    This is just a temporary speed bump<br>
-    But failure brings you freedom<br>
-    And I can bring you love ♡”
+
+  <div class="lyrics">
+    Oh my Lord,<br>
+    Never met no one like you before.<br>
+    You had to make your own sunshine,<br>
+    but now the sky is opalite.<br><br>
+
+    This is just a storm inside a teacup,<br>
+    but shelter here with me, my love.<br>
+    Thunder like a drum,<br>
+    this life will beat you up.<br><br>
+
+    This is just a temporary speed bump,<br>
+    but failure brings you freedom,<br>
+    and I can bring you love ♡
   </div>
+
 </div>
 
 <script>
@@ -214,6 +223,3 @@ function startInfiniteHearts() {
 
 </body>
 </html>
-
-
-
