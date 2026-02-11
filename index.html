@@ -68,9 +68,9 @@
   }
 
   .music-btn {
-    display: inline-block;
-    margin-top: 25px;
-    padding: 10px 22px;
+    display: none;
+    margin-top: 30px;
+    padding: 12px 26px;
     background-color: #ff4f81;
     color: white;
     border-radius: 25px;
@@ -81,6 +81,24 @@
 
   .music-btn:hover {
     background-color: #ff2f6d;
+  }
+
+  .lyrics {
+    margin-top: 40px;
+    font-weight: bold;
+    text-align: left;
+    line-height: 1.6;
+    color: #444;
+    max-width: 600px;
+  }
+
+  .video-text {
+    margin-top: 30px;
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.2em;
+    text-align: left;
+    color: #444;
+    max-width: 600px;
   }
 
   .heart {
@@ -94,36 +112,13 @@
     from { transform: translateY(0); opacity: 1; }
     to { transform: translateY(-120vh); opacity: 0; }
   }
-
-  .video-section {
-    margin-top: 60px;
-    max-width: 600px;
-    width: 100%;
-    text-align: left;
-  }
-
-  .video-text {
-    margin-top: 20px;
-    font-family: 'Dancing Script', cursive;
-    font-size: 1.2em;
-    text-align: left;
-    color: #444;
-  }
-
-  .lyrics {
-    margin-top: 25px;
-    font-weight: bold;
-    text-align: left;
-    line-height: 1.6;
-    color: #444;
-  }
 </style>
 </head>
 
 <body>
 
 <h2>💌 Carta especial para mi niña bonita 💌</h2>
-<p style="color:#ff4f81;">Toca el sobre para abrir 💌</p>
+<p id="instruction" style="color:#ff4f81;">Toca el sobre para abrir 💌</p>
 
 <img src="https://goo.su/KLXC" class="envelope" onclick="openEnvelope()">
 
@@ -131,80 +126,74 @@
   <div class="date">Ecuador, miércoles 11 de febrero del 2026</div>
 
   <p>
-    Mi estrellita bonita,  
-    <br><br>
-    Soy la persona más feliz, estos 4 meses he sentido un amor muy bonito, 
-    nuestro amor bonito. Estoy muy feliz por conocerte y tenerte en mi vida. 
-    Desde que llegaste, todo ha ido cada vez mejor. Me haces sentir muy amada, 
+    Mi estrellita bonita,<br><br>
+    Soy la persona más feliz, estos 4 meses he sentido un amor muy bonito,
+    nuestro amor bonito. Estoy muy feliz por conocerte y tenerte en mi vida.
+    Desde que llegaste, todo ha ido cada vez mejor. Me haces sentir muy amada,
     cuidada, escuchada y acompañada de una forma que valoro mucho.
     <br><br>
     <strong>-Eres lo mejor que me ha pasado.-</strong>
     <br><br>
-    Cada momento contigo se vuelve un recuerdo precioso que guardo con ternura.  
-    A tu lado estoy aprendiendo lo que es el amor real, ese que se demuestra 
-    con acciones, palabras sinceras y con esos pequeños detalles que hacen la 
-    diferencia. Gracias por estar siempre para mi, por darme tu tiempo, tu cariño 
+    Cada momento contigo se vuelve un recuerdo precioso que guardo con ternura.
+    A tu lado estoy aprendiendo lo que es el amor real, ese que se demuestra
+    con acciones, palabras sinceras y con esos pequeños detalles que hacen la
+    diferencia. Gracias por estar siempre para mí, por darme tu tiempo, tu cariño
     y tu comprensión.
     <br><br>
-    Tu forma de ser, tu paciencia y tu cariño hacen que cada día tenga sentido.  
-    Me encanta cómo haces que lo simple sea especial, cómo logras  
-    que mi mundo se sienta más bonito solo con un mensaje tuyo.  
-    Esta carta es solo una pequeña muestra de todo lo que llevo dentro,  
-    de lo que no suelo decir pero que mi corazón grita cada día:  
+    Tu forma de ser, tu paciencia y tu cariño hacen que cada día tenga sentido.
+    Me encanta cómo haces que lo simple sea especial, cómo logras
+    que mi mundo se sienta más bonito solo con un mensaje tuyo.
+    Esta carta es solo una pequeña muestra de todo lo que llevo dentro,
+    de lo que no suelo decir pero que mi corazón grita cada día:
     Eres mi alegría diaria, la razón de tantas sonrisas y suspiros de enamorada.
     <br><br>
     Te quiero más de lo que las palabras pueden decir.
-    Gracias por ser tú, por existir, por quedarte.  
+    Gracias por ser tú, por existir, por quedarte.
   </p>
 
   <div class="signature">
-    Con todo mi amor,  
-    <br>
+    Con todo mi amor,<br>
     <strong>Yann 💌</strong>
-  </div>
-
-  <div style="text-align:center;">
-    <a href="https://youtu.be/UuipMfJKmqk" target="_blank" class="music-btn">
-      Mi canción favorita
-    </a>
   </div>
 </div>
 
-<div class="video-section">
+<!-- BOTÓN FUERA DE LA CARTA -->
+<a href="https://youtu.be/UuipMfJKmqk" target="_blank" class="music-btn" id="musicButton">
+  Mi canción favorita
+</a>
 
-  <div class="video-text">
-    Esta es mi canción favorita porque me hace pensar en ti,  
-    todas las canciones de amor me hacen pensar en ti,  
-    esta y otras más de ese álbum.  
-    <br><br>
-    Esta canción tiene muchísimas partes que me recuerdan  
-    a mí antes y ahora, y de cuando recién me estaba enamorando de ti  
-    y siento muy bonito.
-  </div>
+<div class="video-text">
+  Esta es mi canción favorita porque me hace pensar en ti,
+  todas las canciones de amor me hacen pensar en ti,
+  esta y otras más de ese álbum.
+  <br><br>
+  Esta canción tiene muchísimas partes que me recuerdan
+  a mí antes y ahora, y de cuando recién me estaba enamorando de ti
+  y siento muy bonito.
+</div>
 
-  <div class="lyrics">
-    Oh my Lord,<br>
-    Never met no one like you before.<br>
-    You had to make your own sunshine,<br>
-    but now the sky is opalite.<br><br>
+<div class="lyrics">
+  Oh my Lord,<br>
+  Never met no one like you before.<br>
+  You had to make your own sunshine,<br>
+  but now the sky is opalite.<br><br>
 
-    This is just a storm inside a teacup,<br>
-    but shelter here with me, my love.<br>
-    Thunder like a drum,<br>
-    this life will beat you up.<br><br>
+  This is just a storm inside a teacup,<br>
+  but shelter here with me, my love.<br>
+  Thunder like a drum,<br>
+  this life will beat you up.<br><br>
 
-    This is just a temporary speed bump,<br>
-    but failure brings you freedom,<br>
-    and I can bring you love ♡
-  </div>
-
+  This is just a temporary speed bump,<br>
+  but failure brings you freedom,<br>
+  and I can bring you love ♡
 </div>
 
 <script>
 function openEnvelope() {
   document.querySelector(".envelope").style.display = "none";
-  document.querySelector("p").style.display = "none";
+  document.getElementById("instruction").style.display = "none";
   document.getElementById("letter").style.display = "block";
+  document.getElementById("musicButton").style.display = "inline-block";
   startInfiniteHearts();
 }
 
