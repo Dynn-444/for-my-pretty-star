@@ -19,24 +19,17 @@
     overflow-x: hidden;
     text-align: center;
     padding: 20px;
-    position: relative;
   }
 
   h2 {
     color: #ff4f81;
     margin-bottom: 10px;
-    z-index: 2;
-  }
-
-  p {
-    z-index: 2;
   }
 
   .envelope {
     width: 300px;
     cursor: pointer;
     transition: transform 0.4s ease;
-    z-index: 2;
   }
 
   .envelope:hover {
@@ -59,8 +52,6 @@
     line-height: 1.6;
     text-align: left;
     margin-top: 20px;
-    z-index: 2;
-    position: relative;
   }
 
   .date {
@@ -76,13 +67,22 @@
     font-style: italic;
   }
 
-  /* 💗 corazones */
+  .music-btn {
+    display: inline-block;
+    margin-top: 25px;
+    padding: 10px 22px;
+    background-color: #ff4f81;
+    color: white;
+    border-radius: 25px;
+    text-decoration: none;
+    font-size: 1em;
+  }
+
   .heart {
     position: fixed;
     bottom: -20px;
     animation: floatUp 7s linear infinite;
     pointer-events: none;
-    z-index: 3;
   }
 
   @keyframes floatUp {
@@ -90,42 +90,24 @@
     to { transform: translateY(-120vh); opacity: 0; }
   }
 
-  /* 🎬 video oculto con overlay */
-  .video-bg {
-    position: fixed;
-    inset: 0;
-    z-index: -2;
-    overflow: hidden;
+  /* sección del video */
+  .video-section {
+    margin-top: 60px;
+    max-width: 600px;
+    width: 100%;
   }
 
-  .video-bg iframe {
-    width: 100vw;
-    height: 100vh;
-    pointer-events: none;
-  }
-
-  .video-overlay {
-    position: fixed;
-    inset: 0;
-    background: linear-gradient(to top, #ffd6e0, #fff0f5);
-    opacity: 0.95;
-    z-index: -1;
+  .video-text {
+    margin-top: 20px;
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.2em;
+    text-align: left;
+    color: #444;
   }
 </style>
 </head>
 
 <body>
-
-<!-- 🎬 Video de fondo (tapado) -->
-<div class="video-bg">
-  <iframe
-    id="ytplayer"
-    src="https://www.youtube.com/embed/d2Tu9ctifx4?enablejsapi=1&loop=1&playlist=d2Tu9ctifx4&controls=0&modestbranding=1"
-    frameborder="0"
-    allow="autoplay; encrypted-media">
-  </iframe>
-</div>
-<div class="video-overlay"></div>
 
 <h2>💌 Carta especial para mi niña bonita 💌</h2>
 <p style="color:#ff4f81;">Toca el sobre para abrir 💌</p>
@@ -167,22 +149,41 @@
     <br>
     <strong>Yann 💌</strong>
   </div>
+
+  <!-- botón -->
+  <div style="text-align:center;">
+    <a href="#video" class="music-btn">toca aquí</a>
+  </div>
+</div>
+
+<!-- sección del video -->
+<div id="video" class="video-section">
+  <iframe
+    width="100%"
+    height="315"
+    src="https://www.youtube.com/embed/d2Tu9ctifx4"
+    frameborder="0"
+    allow="accelerometer; autoplay; encrypted-media"
+    allowfullscreen>
+  </iframe>
+
+  <div class="video-text">
+    Esta es mi canción favorita porque me hace pensar en ti,  
+    todas las canciones de amor me hacen pensar en ti,  
+    esta y otras más de ese álbum.  
+    <br><br>
+    Esta canción tiene muchísimas partes que me recuerdan  
+    a mí antes y ahora, y de cuando recién me estaba enamorando de ti  
+    y siento muy bonito.
+  </div>
 </div>
 
 <script>
-let musicStarted = false;
-
 function openEnvelope() {
   document.querySelector(".envelope").style.display = "none";
   document.querySelector("p").style.display = "none";
   document.getElementById("letter").style.display = "block";
   startInfiniteHearts();
-
-  if (!musicStarted) {
-    const iframe = document.getElementById("ytplayer");
-    iframe.src += "&autoplay=1";
-    musicStarted = true;
-  }
 }
 
 function startInfiniteHearts() {
